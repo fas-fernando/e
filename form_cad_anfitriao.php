@@ -5,12 +5,12 @@
         <h5>Cadastrar de Anfitrião</h5>
     </div>
     <div class="card-body">
-        <form action="cad_anfitriao.php" method="post">
+        <form action="cad_anfitriao.php" method="POST">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
                         <label for="nome_anfi" class="form-label">Nome Completo</label>
-                        <input type="text" class="form-control" id="nome_anfi" name="nome_anfi">
+                        <input type="text" class="form-control" id="nome_anfi" name="nome_anfi" required>
                     </div>
                 </div>
             </div>

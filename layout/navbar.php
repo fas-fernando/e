@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost/evoapp/">Home</a>
+                    <a class="nav-link" aria-current="page" href="http://localhost/evoapp/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/evoapp/form_cad_anfitriao.php">Link</a>
+                    <a class="nav-link" href="http://localhost/evoapp/list_anfitriao.php">Anfitriões</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
