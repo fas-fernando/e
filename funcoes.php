@@ -6,3 +6,16 @@ function mensagens ($texto, $tipo) {
             $texto
           </div>";
 }
+
+// MANDAR O VALOR LIMPO PARA O BANCO DE DADOS
+function limpaSiglas ($valor) {
+  $valor = trim($valor);
+  $valor = str_replace(".", "", $valor);
+  $valor = str_replace(",", "", $valor);
+  $valor = str_replace("-", "", $valor);
+  $valor = str_replace("/", "", $valor);
+  $valor = str_replace("(", "", $valor);
+  $valor = str_replace(")", "", $valor);
+  $valor = str_replace(" ", "", $valor);
+  return $valor;
+}

@@ -12,9 +12,9 @@
     $bairro_anfi  = $_POST['bairro_anfi'];
     $cidade_anfi  = $_POST['cidade_anfi'];
     $uf_anfi      = $_POST['uf_anfi'];
-    $cep_anfi     = $_POST['cep_anfi'];
-    $tel_anfi     = $_POST['tel_anfi'];
-    $celular_anfi = $_POST['celular_anfi'];
+    $cep_anfi     = limpaSiglas($_POST['cep_anfi']);
+    $tel_anfi     = limpaSiglas($_POST['tel_anfi']);
+    $celular_anfi = limpaSiglas($_POST['celular_anfi']);
     $status       = $_POST['status'];
 
     if($status == 'A') {

@@ -6,16 +6,16 @@
     include 'funcoes.php';
 
     $nome     = $_POST['nome_anfi'];
-    $cnpj     = $_POST['cnpj'];
-    $cpf      = $_POST['cpf'];
+    $cnpj     = limpaSiglas($_POST['cnpj']);
+    $cpf      = limpaSiglas($_POST['cpf']);
     $endereco = $_POST['end_anfi'];
     $numero   = $_POST['num_anfi'];
     $bairro   = $_POST['bairro_anfi'];
     $cidade   = $_POST['cidade_anfi'];
     $uf       = $_POST['uf_anfi'];
-    $cep      = $_POST['cep_anfi'];
-    $fixo     = $_POST['tel_anfi'];
-    $cel      = $_POST['celular_anfi'];
+    $cep      = limpaSiglas($_POST['cep_anfi']);
+    $fixo     = limpaSiglas($_POST['tel_anfi']);
+    $cel      = limpaSiglas($_POST['celular_anfi']);
 
     if ($cnpj) {
 
