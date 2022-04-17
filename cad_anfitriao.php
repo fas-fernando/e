@@ -30,9 +30,9 @@
     }
 
     if($res) {
-        cad_anfitriao('Anfitrião cadastrado com sucesso', 'success');
+        mensagens('Anfitrião cadastrado com sucesso', 'success');
     } else {
-        cad_anfitriao('Problema no cadastro do anfitrião, verifique com o suporte', 'danger');
+        mensagens('Problema no cadastro do anfitrião, verifique com o suporte', 'danger');
     }
 
 ?>
