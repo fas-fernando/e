@@ -19,17 +19,18 @@
 
                 $dados = mysqli_fetch_assoc($res);
 
-                if (($user == $dados['user']) && ($pass == $dados['senha'])) {
+                if (($user == $dados['user']) && ($pass == $dados['senha']) && ($dados['nivel'] == 5)) {
 
                     session_start();
                     $_SESSION['login'] = $dados['nome'];
                     header('location: admin');
 
-                } else {
+                } else if(($user == $dados['user']) && ($pass == $dados['senha']) && ($dados['nivel'] < 5)) {
 
-                    mensagens('Usuário ou Senha invalidos. Por favor tente novamente', 'danger');
+                    mensagens('Seu usuário não tem permissão para acessar essa sessão do sistema', 'danger');
 
                 }
+
             } else {
 
                 mensagens('Usuário ou Senha invalidos. Por favor tente novamente', 'danger');

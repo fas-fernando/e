@@ -37,4 +37,9 @@ $(document).ready(function(){
         $("#modalAnfitriao").load("data/anfitriao/modal/m_desfazer_anfitriao.php", { id: id });
     });
 
+    // Cadastrar Usuário
+    $(document).on("click", "#cadastrarUsuario", function () {
+      $("#modalUsuario").load("data/usuario/modal/m_cad_usuario.php");
+    });
+
 });
