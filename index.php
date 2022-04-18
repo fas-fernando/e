@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVO APP</title>
 
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -120,12 +120,13 @@ body {
                 <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Usuário"> </div>
                 <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Senha"> </div> <button class="btn mt-3">Entrar</button>
             </form>
-            <div ><span>Se esqueceu sua senha entre em contato: <a href="#">Suporte EVO APP</a></span></div>
-            <div><span><hr><?php include 'verifica_user.php' ?></span></div>
+            <div><span><?php include 'verifica_user.php' ?></span></div>
+            <hr>
+            <div class="mt-3"><span>Se esqueceu sua senha entre em contato: <a href="#">Suporte EVO APP</a></span></div>
         </div>
     </div>
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
