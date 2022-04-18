@@ -1,4 +1,4 @@
-<?php include 'layout/header.php' ?>
+<?php include 'header.php' ?>
 
 <?php
 
@@ -53,7 +53,7 @@ $res = mysqli_query($conexao, $sql);
                     <tr>
                         <td>
                             <?= ($dados['status'] == 'A') ? '<span class="badge bg-success">Ativo</span>' : '<span class="badge bg-danger">Inativo</span>' ?>
-                            <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluido</span>' : '' ?>
+                            <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluído</span>' : '' ?>
                         </td>
                         <td><?= $dados['nome'] ?></td>
 
@@ -87,7 +87,7 @@ $res = mysqli_query($conexao, $sql);
 
 <div id="modalAnfitriao"></div>
 
-<?php include 'layout/footer.php' ?>
+<?php include 'footer.php' ?>
 
 <script>
     $(document).ready(function() {

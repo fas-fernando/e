@@ -1,21 +1,21 @@
-<?php include 'layout/header.php' ?>
+<?php include 'header.php' ?>
 
 
 <?php
     include 'conexao.php';
     include 'funcoes.php';
 
-    $nome     = $_POST['nome_anfi'];
-    $cnpj     = limpaSiglas($_POST['cnpj']);
-    $cpf      = limpaSiglas($_POST['cpf']);
-    $endereco = $_POST['end_anfi'];
-    $numero   = $_POST['num_anfi'];
-    $bairro   = $_POST['bairro_anfi'];
-    $cidade   = $_POST['cidade_anfi'];
-    $uf       = $_POST['uf_anfi'];
-    $cep      = limpaSiglas($_POST['cep_anfi']);
-    $fixo     = limpaSiglas($_POST['tel_anfi']);
-    $cel      = limpaSiglas($_POST['celular_anfi']);
+    $nome     = limpaTexto($conexao, $_POST['nome_anfi']);
+    $cnpj     = limpaTexto($conexao, limpaSiglas($_POST['cnpj']));
+    $cpf      = limpaTexto($conexao, limpaSiglas($_POST['cpf']));
+    $endereco = limpaTexto($conexao, $_POST['end_anfi']);
+    $numero   = limpaTexto($conexao, $_POST['num_anfi']);
+    $bairro   = limpaTexto($conexao, $_POST['bairro_anfi']);
+    $cidade   = limpaTexto($conexao, $_POST['cidade_anfi']);
+    $uf       = limpaTexto($conexao, $_POST['uf_anfi']);
+    $cep      = limpaTexto($conexao, limpaSiglas($_POST['cep_anfi']));
+    $fixo     = limpaTexto($conexao, limpaSiglas($_POST['tel_anfi']));
+    $cel      = limpaTexto($conexao, limpaSiglas($_POST['celular_anfi']));
 
     if ($cnpj) {
 
@@ -43,4 +43,4 @@
     </div>
 </div>
 
-<?php include 'layout/footer.php' ?>
+<?php include 'footer.php' ?>

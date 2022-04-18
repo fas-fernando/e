@@ -1,11 +1,11 @@
-<?php include 'layout/header.php' ?>
+<?php include 'header.php' ?>
 
 <?php
 
 include 'conexao.php';
 include 'funcoes.php';
 
-$id = $_POST['idAnfitriao'];
+$id = limpaTexto($conexao, $_POST['idAnfitriao']);
 
 $sql = "UPDATE `anfitriao` SET `deletado_em`=null, `status`='A'  WHERE id_anfitriao = '$id'";
 $res = mysqli_query($conexao, $sql);
@@ -25,4 +25,4 @@ if ($res) {
     </div>
 </div>
 
-<?php include 'layout/footer.php' ?>
+<?php include 'footer.php' ?>
