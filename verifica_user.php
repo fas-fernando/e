@@ -23,6 +23,7 @@
 
                     session_start();
                     $_SESSION['login'] = $dados['nome'];
+                    $_SESSION['id'] = $dados['id'];
                     header('location: admin');
 
                 } else if(($user == $dados['user']) && ($pass == $dados['senha']) && ($dados['nivel'] < 5)) {

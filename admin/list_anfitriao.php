@@ -36,21 +36,29 @@ $res = mysqli_query($conexao, $sql);
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
+                    <th scope="col">Foto</th>
                     <th scope="col">Status</th>
                     <th scope="col">Nome</th>
                     <th scope="col">CNPJ / CPF</th>
-                    <th scope="col">Telefone</th>
                     <th scope="col">Celular</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($dados = mysqli_fetch_assoc($res)) {
-                    $id = $dados['id_anfitriao'];
+                    $id   = $dados['id_anfitriao'];
                     $nome = $dados['nome'];
+                    $foto = $dados['foto'];
+
+                    if(!$foto == null) {
+                        $mostrar_foto = "<img src='img/$foto' style='width:70px;border-radius:20px' alt='Imagem da Quadra'>";
+                    } else {
+                        $mostrar_foto = '';
+                    }
                 ?>
 
                     <tr>
+                        <td><?= $mostrar_foto ?></td>
                         <td>
                             <?= ($dados['status'] == 'A') ? '<span class="badge bg-success">Ativo</span>' : '<span class="badge bg-danger">Inativo</span>' ?>
                             <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluído</span>' : '' ?>
@@ -67,7 +75,6 @@ $res = mysqli_query($conexao, $sql);
 
                         <?php } ?>
 
-                        <td class="fixo"><?= $dados['tel_fixo'] ?></td>
                         <td class="celular"><?= $dados['tel_celular'] ?></td>
                         <td>
                             <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
@@ -89,11 +96,12 @@ $res = mysqli_query($conexao, $sql);
 
 <?php include 'footer.php' ?>
 
+<script src="js/jquery.mask.js"></script>
+
 <script>
     $(document).ready(function() {
         $('.cpf').mask('000.000.000-00');
         $('.cnpj').mask('00.000.000/0000-00');
-        $('.fixo').mask('(00) 0000-0000');
         $('.celular').mask('(00) 00000-0000');
     });
 </script>

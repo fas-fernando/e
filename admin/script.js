@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     // Cadastrar Anfitrião
     $(document).on("click", "#cadastrarAnfitriao", function () {
+        event.preventDefault();
       $("#modalAnfitriao").load("data/anfitriao/modal/m_cad_anfitriao.php");
     });
 

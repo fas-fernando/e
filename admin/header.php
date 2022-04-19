@@ -1,5 +1,6 @@
 <?php include '../validar.php' ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,5 +37,10 @@
 
     <div class="wrapper"></div>
 
+    <?php include 'conexao.php' ?>
     <?php include 'navbar.php' ?>
     <?php include 'sidebar.php' ?>
+
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">

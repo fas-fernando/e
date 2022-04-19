@@ -1,6 +1,6 @@
 <div class="modal fade" id="cadastrar_anfitriao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form action="cad_anfitriao.php" method="POST">
+        <form action="cad_anfitriao.php" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Cadastrar Anfitrião</h5>
@@ -90,6 +90,12 @@
                                 <input type="text" class="form-control" id="celular_anfi" name="celular_anfi" placeholder="(00) 00000-0000">
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="foto" class="form-label">Imagem da Quadra</label>
+                                <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -100,6 +106,10 @@
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<script src="js/jquery.mask.js"></script>
 
 <script>
     $(document).ready(function() {
