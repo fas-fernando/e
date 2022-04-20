@@ -6,9 +6,11 @@ include 'conexao.php';
 
 $pesquisa = $_POST['busca'] ?? '';
 
-$sql = "SELECT *
-    FROM usuario
-    WHERE nome LIKE '%$pesquisa%'";
+// Processo de pesquisa
+$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario
+    FROM usuario t1
+    left join nivel_usuario t2 on t1.nivel = t2.id_user
+    WHERE t1.nome LIKE '%$pesquisa%'";
 $res = mysqli_query($conexao, $sql);
 
 ?>
@@ -54,10 +56,10 @@ $res = mysqli_query($conexao, $sql);
                             <?= ($dados['status'] == 'A') ? '<span class="badge bg-success">Ativo</span>' : '<span class="badge bg-danger">Inativo</span>' ?>
                             <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluído</span>' : '' ?>
                         </td>
-                        <td><?= $dados['nome'] ?></td>
+                        <td><?= $nome ?></td>
 
                         <td><?= $dados['user'] ?></td>
-                        <td><?= $dados['nivel'] ?></td>
+                        <td><?= $dados['nivel_usuario'] ?></td>
                         <td>
                             <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
                             <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarAnfitriao" name="alterarAnfitriao">

@@ -107,26 +107,20 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="script.js"></script>
-<script src="js/jquery.mask.js"></script>
-
 <script>
     $(document).ready(function() {
         // Abrir Modal
         $("#cadastrar_anfitriao").modal("show");
+    });
+</script>
 
-        // Mascaras
-        $('#cep_anfi').mask('00000-000');
-        $('#cpf').mask('000.000.000-00');
-        $('#cnpj').mask('00.000.000/0000-00');
-        $('#tel_anfi').mask('(00) 0000-0000');
-        $('#celular_anfi').mask('(00) 00000-0000');
-
-        // Escolher Documento
+<script>
+    $(document).ready(function() {
+        // Esconder Capos de Documento
         $('#cnpj').hide();
         $('#cpf').hide();
 
+        // Escolher Documento
         $('input:radio[name="doc"]').change(function() {
             if ($(this).val() == 'cnpj_anfi') {
                 $('#cnpj').show();
