@@ -2,13 +2,19 @@
 
 <?php
     
-    $sql_user = "SELECT COUNT(id_anfitriao) as quantidade
-    FROM anfitriao
-    WHERE status = 'A'";
-    $result = mysqli_query($conexao, $sql_user);
-    $dados = mysqli_fetch_assoc($result);
+// Bloco de anfitrião
+$sql_anfi = "SELECT COUNT(id_anfitriao) as quantidade
+FROM anfitriao
+WHERE status = 'A'";
+$res_anfi = mysqli_query($conexao, $sql_anfi);
+$dados_anfi = mysqli_fetch_assoc($res_anfi);
 
-
+// Bloco de usuário
+$sql_user = "SELECT COUNT(id) as quantidade
+FROM usuario
+WHERE status = 'A'";
+$res_user = mysqli_query($conexao, $sql_user);
+$dados_user = mysqli_fetch_assoc($res_user);
 
 ?>
 
@@ -32,8 +38,8 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3><?= $dados['quantidade'] ?></h3>
-                    <p><?= ($dados['quantidade'] > 1) ? 'Anfitriões Registrados' : 'Anfitrião Registrado' ?></p>
+                    <h3><?= $dados_anfi['quantidade'] ?></h3>
+                    <p><?= ($dados_anfi['quantidade'] > 1) ? 'Anfitriões registrados' : 'Anfitrião registrado' ?></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-briefcase"></i>
@@ -44,13 +50,13 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>44</h3>
-                    <p>User Registrations</p>
+                    <h3><?= $dados_user['quantidade'] ?></h3>
+                    <p><?= ($dados_user['quantidade'] > 1) ? 'Usuários registrados' : 'Usuário registrado' ?></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="list_usuario.php" class="small-box-footer">Vermais <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

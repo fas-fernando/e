@@ -11,7 +11,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['id'])) {
 }
 
 
-include 'conexao.php';
+include '../../../conexao.php';
 
 // Listagem dos níveis pelo nome
 $sql_nivel = "SELECT id_user as id_nivel, nivel_usuario FROM nivel_usuario";

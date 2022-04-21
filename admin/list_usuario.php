@@ -52,9 +52,9 @@ $res = mysqli_query($conexao, $sql);
                     $foto = $dados['foto'];
 
                     if (!$foto == null) {
-                        $mostrar_foto = "<img src='img/$foto' style='width:70px;border-radius:20px' alt='Imagem da Quadra'>";
+                        $mostrar_foto = "<img src='img/$foto' style='width:50px;height:50px;border-radius:40px' alt='Imagem da quadra'>";
                     } else {
-                        $mostrar_foto = "<img src='quadra_padrao.webp' style='width:70px;border-radius:20px' alt='Imagem da Quadra Padrão'>";;
+                        $mostrar_foto = "<img src='img/usuario_padrao.png' style='width:50px;height:50px;border-radius:40px' alt='Imagem da quadra padrão'>";;
                     }
                 ?>
 
