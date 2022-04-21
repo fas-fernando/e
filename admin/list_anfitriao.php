@@ -6,9 +6,12 @@ include 'conexao.php';
 
 $pesquisa = $_POST['busca'] ?? '';
 
-$sql = "SELECT *
-    FROM anfitriao";
+$sql = "SELECT * FROM anfitriao";
 $res = mysqli_query($conexao, $sql);
+
+$sql_user = "SELECT * FROM usuario WHERE id = '$iden'";
+$res_user = mysqli_query($conexao, $sql_user);
+$dados_user = mysqli_fetch_assoc($res_user);
 
 ?>
 
@@ -34,7 +37,7 @@ $res = mysqli_query($conexao, $sql);
             <div class="row">
                 <div class="col-2">
                     <h3 class="card-title">
-                        <button type="button" class="btn btn-success" id="cadastrarAnfitriao" name="cadastrarAnfitriao">Cadastrar</button>
+                        <button type="button" class="btn btn-success btn-sm" id="cadastrarAnfitriao" name="cadastrarAnfitriao">Cadastrar</button>
                     </h3>
                 </div>
             </div>
@@ -85,11 +88,15 @@ $res = mysqli_query($conexao, $sql);
 
                             <td class="celular"><?= $dados['tel_celular'] ?></td>
                             <td>
-                                <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
-                                <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarAnfitriao" name="alterarAnfitriao">
-                                <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarAnfitriao" name="detelarAnfitriao">
-                                <?php if ($dados['deletado_em'] != '' || $dados['deletado_em'] != null) { ?>
-                                    <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerAnfitriao" name="desfazerAnfitriao">
+                                <?php if ($dados_user['tipo'] == 2) { ?>
+                                    <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
+                                    <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarAnfitriao" name="alterarAnfitriao">
+                                    <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarAnfitriao" name="detelarAnfitriao">
+                                    <?php if ($dados['deletado_em'] != '' || $dados['deletado_em'] != null) { ?>
+                                        <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerAnfitriao" name="desfazerAnfitriao">
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
                                 <?php } ?>
                             </td>
                         </tr>

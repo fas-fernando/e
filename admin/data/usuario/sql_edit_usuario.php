@@ -38,4 +38,12 @@ $dados_tipo_user = mysqli_fetch_assoc($res_tipo_user);
 $sql_tipo_all = "SELECT * FROM tipo_usuario";
 $res_tipo_all = mysqli_query($conexao, $sql_tipo_all);
 
+$foto = $dados['foto'];
+
+if (!$foto == null) {
+    $mostrar_foto = "<img src='img/$foto' style='width:50px;height:50px;border-radius:40px' alt='Imagem do usuário'>";
+} else {
+    $mostrar_foto = "<img src='img/usuario_padrao.png' style='width:50px;height:50px;border-radius:40px' alt='Imagem padrão do usuário'>";
+}
+
 ?>

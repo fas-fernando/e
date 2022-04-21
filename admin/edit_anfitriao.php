@@ -16,16 +16,17 @@
     $tel_anfi     = limpaTexto($conexao, limpaSiglas($_POST['tel_anfi']));
     $celular_anfi = limpaTexto($conexao, limpaSiglas($_POST['celular_anfi']));
     $status       = limpaTexto($conexao, $_POST['status']);
+    $senha        = limpaTexto($conexao, $_POST['senha']);
 
     if($status == 'A') {
         
-        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='A',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now()
+        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='A',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now(),`senha` = md5('$senha')
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 
     } else {
 
-        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='I',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now()
+        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='I',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now(),`senha` = md5('$senha')
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 

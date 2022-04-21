@@ -4,7 +4,7 @@ include '../../../conexao.php';
 
 $id = $_POST['id'];
 
-$sql = "SELECT t1.status, t1.nome, t1.user, t2.nome as anfitriao, t3.nivel_usuario, t4.tipo_usuario
+$sql = "SELECT t1.status, t1.nome, t1.user, t2.nome as anfitriao, t3.nivel_usuario, t4.tipo_usuario, t1.foto
 FROM usuario t1
 left join anfitriao t2     on t1.vinculo = t2.id_anfitriao
 left join nivel_usuario t3 on t1.nivel = t3.id
@@ -12,6 +12,13 @@ left join tipo_usuario t4  on t1.tipo = t4.id
 WHERE t1.id = '$id'";
 $res = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_assoc($res);
+$foto = $dados['foto'];
+
+if (!$foto == null) {
+    $mostrar_foto = "<img src='img/$foto' style='width:50px;height:50px;border-radius:40px' alt='Imagem do usuário'>";
+} else {
+    $mostrar_foto = "<img src='img/usuario_padrao.png' style='width:50px;height:50px;border-radius:40px' alt='Imagem padrão do usuário'>";
+}
 
 ?>
 
@@ -24,7 +31,10 @@ $dados = mysqli_fetch_assoc($res);
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-1">
+                        <?= $mostrar_foto ?>
+                    </div>
+                    <div class="col-md-2">
                         <?php if ($dados['status'] == 'A') { ?>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="status" id="status_a" checked value="A" disabled>

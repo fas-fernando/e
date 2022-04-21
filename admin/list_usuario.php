@@ -6,11 +6,15 @@ include 'conexao.php';
 
 $pesquisa = $_POST['busca'] ?? '';
 
-$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario, t1.foto
+$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario, t1.foto, t1.tipo
     FROM usuario t1
     left join nivel_usuario t2 on t1.nivel = t2.id_user
     WHERE t1.nome LIKE '%$pesquisa%'";
 $res = mysqli_query($conexao, $sql);
+
+$sql_user = "SELECT * FROM usuario WHERE id = '$iden'";
+$res_user = mysqli_query($conexao, $sql_user);
+$dados_user = mysqli_fetch_assoc($res_user);
 
 ?>
 
@@ -78,11 +82,15 @@ $res = mysqli_query($conexao, $sql);
                             <td><?= $dados['user'] ?></td>
                             <td><?= $dados['nivel_usuario'] ?></td>
                             <td>
-                                <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharUsuario" name="detalharUsuario">
-                                <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarUsuario" name="alterarUsuario">
-                                <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarUsuario" name="detelarUsuario">
-                                <?php if ($dados['deletado_em'] != '' || $dados['deletado_em'] != null) { ?>
-                                    <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerUsuario" name="desfazerUsuario">
+                                <?php if ($dados_user['tipo'] == 2) { ?>
+                                    <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharUsuario" name="detalharUsuario">
+                                    <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarUsuario" name="alterarUsuario">
+                                    <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarUsuario" name="detelarUsuario">
+                                    <?php if ($dados['deletado_em'] != '' || $dados['deletado_em'] != null) { ?>
+                                        <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerUsuario" name="desfazerUsuario">
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharUsuario" name="detalharUsuario">
                                 <?php } ?>
                             </td>
                         </tr>

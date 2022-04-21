@@ -65,21 +65,52 @@
     <script src="dist/js/demo.js"></script>
      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+    
+    <?php 
+    
+    include 'conexao.php';
 
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-    </script>
+    $sql = "SELECT * FROM usuario WHERE id = '$iden'";
+    $res = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_assoc($res);
+    
+    
+    if($dados['tipo'] == 2) { ?>
+
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+
+    <?php } else { ?>
+
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "buttons": ["colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+
+    <?php } ?>
+    
 </body>
 
 

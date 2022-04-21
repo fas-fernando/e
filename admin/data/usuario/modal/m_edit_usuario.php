@@ -1,11 +1,7 @@
 <?php
-
 include '../../../conexao.php';
-
 $id = $_POST['id'];
-
 include '../sql_edit_usuario.php';
-
 ?>
 
 <div class="modal fade" id="alterar_usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -18,7 +14,10 @@ include '../sql_edit_usuario.php';
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-1">
+                            <?= $mostrar_foto ?>
+                        </div>
+                        <div class="col-md-2">
                             <?php if ($dados['status'] == 'A') { ?>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="status" id="status_a" checked value="A">
