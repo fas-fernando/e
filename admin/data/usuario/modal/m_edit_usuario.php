@@ -94,14 +94,14 @@ include '../sql_edit_usuario.php';
                     <div class="row mt-3">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="user" class="form-label" disabled>Usuário</label>
+                                <label for="user" class="form-label">Usuário</label>
                                 <input type="text" class="form-control" id="user" name="user" value="<?= $dados['user'] ?>">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="senha" class="form-label" disabled>Senha</label>
-                                <input type="text" class="form-control" id="senha" name="senha" value="">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" name="senha" value="<?= $dados['senha'] ?>">
                             </div>
                         </div>
                     </div>

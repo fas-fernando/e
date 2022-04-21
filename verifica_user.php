@@ -5,8 +5,8 @@
 
     if(isset($_POST['userName'])) {
 
-        $user = mysqli_real_escape_string($conexao, $_POST['userName']);
-        $pass = mysqli_real_escape_string($conexao, md5($_POST['password']));
+        $user = limpaTexto($conexao, $_POST['userName']);
+        $pass = limpaTexto($conexao, md5($_POST['password']));
     
         $sql = "SELECT * FROM `usuario` WHERE user = '$user' and senha = '$pass'";
         
