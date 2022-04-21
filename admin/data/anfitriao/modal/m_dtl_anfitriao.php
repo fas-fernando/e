@@ -7,6 +7,13 @@ $id = $_POST['id'];
 $sql = "SELECT * FROM anfitriao WHERE id_anfitriao = '$id'";
 $res = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_assoc($res);
+$foto = $dados['foto'];
+
+if (!$foto == null) {
+    $mostrar_foto = "<img src='img/$foto' style='width:50px;height:50px;border-radius:40px' alt='Imagem da Quadra'>";
+} else {
+    $mostrar_foto = "<img src='img/quadra_padrao.png' style='width:50px;height:50px;border-radius:40px' alt='Imagem da Quadra Padrão'>";
+}
 
 ?>
 
@@ -19,7 +26,10 @@ $dados = mysqli_fetch_assoc($res);
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-1">
+                        <?= $mostrar_foto ?>
+                    </div>
+                    <div class="col-md-2">
                         <?php if ($dados['status'] == 'A') { ?>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="status" id="status_a" checked value="A" disabled>

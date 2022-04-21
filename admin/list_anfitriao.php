@@ -16,12 +16,12 @@ $res = mysqli_query($conexao, $sql);
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Listagem de anfitrião</h1>
+                <h1>Lista de anfitrião</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Listagem de anfitrião</li>
+                    <li class="breadcrumb-item active">Lista de anfitrião</li>
                 </ol>
             </div>
         </div>
@@ -110,5 +110,7 @@ $res = mysqli_query($conexao, $sql);
 <script>
     $(document).ready(function() {
         $('.cpf').mask('000.000.000-00');
+        $('.cnpj').mask('00.000.000/0000-00');
+        $('.celular').mask('(00) 00000-0000');
     });
 </script>
