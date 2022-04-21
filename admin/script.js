@@ -42,4 +42,36 @@ $(document).ready(function(){
       $("#modalUsuario").load("data/usuario/modal/m_cad_usuario.php");
     });
 
+    // Detalhar Usuário
+    $(document).on("click", "#detalharUsuario", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-dtl");
+
+        $("#modalUsuario").load("data/usuario/modal/m_dtl_usuario.php", { id: id });
+    });
+
+    // Alterar Usuário
+    $(document).on("click", "#alterarUsuario", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-alt");
+
+        $("#modalUsuario").load("data/usuario/modal/m_edit_usuario.php", { id: id });
+    });
+
+    // Deletar Anfitrião
+    $(document).on("click", "#detelarUsuario", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-del");
+
+        $("#modalUsuario").load("data/usuario/modal/m_deletar_usuario.php", { id: id });
+    });
+
+    // Desfazer Exclusão do Anfitrião
+    $(document).on("click", "#desfazerUsuario", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-des");
+
+        $("#modalUsuario").load("data/usuario/modal/m_desfazer_usuario.php", { id: id });
+    });
+
 });

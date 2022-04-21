@@ -107,6 +107,18 @@
     </div>
 </div>
 
+<script src="../../../js/jquery.mask.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#cpf').mask('000.000.000-00');
+        $('#cnpj').mask('00.000.000/0000-00');
+        $('#cep_anfi').mask('00000-000');
+        $('#tel_anfi').mask('(00) 0000-0000');
+        $('#celular_anfi').mask('(00) 00000-0000');
+    });
+</script>
+
 <script>
     $(document).ready(function() {
         // Abrir Modal

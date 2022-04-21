@@ -50,7 +50,7 @@ $res = mysqli_query($conexao, $sql);
                     $nome = $dados['nome'];
                     $foto = $dados['foto'];
 
-                    if(!$foto == null) {
+                    if (!$foto == null) {
                         $mostrar_foto = "<img src='img/$foto' style='width:70px;border-radius:20px' alt='Imagem da Quadra'>";
                     } else {
                         $mostrar_foto = '';
@@ -95,11 +95,10 @@ $res = mysqli_query($conexao, $sql);
 <div id="modalAnfitriao"></div>
 
 <?php include 'footer.php' ?>
+<script src="js/jquery.mask.js"></script>
 
-<!-- <script>
+<script>
     $(document).ready(function() {
         $('.cpf').mask('000.000.000-00');
-        $('.cnpj').mask('00.000.000/0000-00');
-        $('.celular').mask('(00) 00000-0000');
     });
-</script> -->
+</script>

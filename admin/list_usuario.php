@@ -6,8 +6,7 @@ include 'conexao.php';
 
 $pesquisa = $_POST['busca'] ?? '';
 
-// Processo de pesquisa
-$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario
+$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario, t1.foto
     FROM usuario t1
     left join nivel_usuario t2 on t1.nivel = t2.id_user
     WHERE t1.nome LIKE '%$pesquisa%'";
@@ -38,6 +37,7 @@ $res = mysqli_query($conexao, $sql);
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
+                    <th scope="col">Foto</th>
                     <th scope="col">Status</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Usuário</th>
@@ -49,9 +49,17 @@ $res = mysqli_query($conexao, $sql);
                 <?php while ($dados = mysqli_fetch_assoc($res)) {
                     $id = $dados['id'];
                     $nome = $dados['nome'];
+                    $foto = $dados['foto'];
+
+                    if (!$foto == null) {
+                        $mostrar_foto = "<img src='img/$foto' style='width:70px;border-radius:20px' alt='Imagem da Quadra'>";
+                    } else {
+                        $mostrar_foto = "<img src='quadra_padrao.webp' style='width:70px;border-radius:20px' alt='Imagem da Quadra Padrão'>";;
+                    }
                 ?>
 
                     <tr>
+                        <td><?= $mostrar_foto ?></td>
                         <td>
                             <?= ($dados['status'] == 'A') ? '<span class="badge bg-success">Ativo</span>' : '<span class="badge bg-danger">Inativo</span>' ?>
                             <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluído</span>' : '' ?>
@@ -61,11 +69,11 @@ $res = mysqli_query($conexao, $sql);
                         <td><?= $dados['user'] ?></td>
                         <td><?= $dados['nivel_usuario'] ?></td>
                         <td>
-                            <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharAnfitriao" name="detalharAnfitriao">
-                            <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarAnfitriao" name="alterarAnfitriao">
-                            <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarAnfitriao" name="detelarAnfitriao">
+                            <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharUsuario" name="detalharUsuario">
+                            <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarUsuario" name="alterarUsuario">
+                            <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarUsuario" name="detelarUsuario">
                             <?php if ($dados['deletado_em'] != '' || $dados['deletado_em'] != null) { ?>
-                                <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerAnfitriao" name="desfazerAnfitriao">
+                                <input type="submit" value="Desfazer" data-des="<?= $id ?>" class=" btn btn-dark btn-sm" id="desfazerUsuario" name="desfazerUsuario">
                             <?php } ?>
                         </td>
                     </tr>

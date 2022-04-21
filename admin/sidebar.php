@@ -1,3 +1,11 @@
+<?php
+
+$sql = "SELECT foto FROM usuario WHERE id = '$iden'";
+$res = mysqli_query($conexao, $sql);
+$dados = mysqli_fetch_assoc($res);
+
+?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="index.php" class="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -6,7 +14,7 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="imagem do usuário">
+                <img src="img/<?= $dados['foto'] ?>" class="img-circle elevation-2" alt="imagem do usuário">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= $login ?></a>

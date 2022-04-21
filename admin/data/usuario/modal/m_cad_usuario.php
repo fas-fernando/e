@@ -29,7 +29,7 @@ $res_quadra = mysqli_query($conexao, $sql_quadra);
 
 <div class="modal fade" id="cadastrar_usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form action="cad_usuario.php" method="POST">
+        <form action="cad_usuario.php" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Cadastrar usuário</h5>
@@ -45,16 +45,22 @@ $res_quadra = mysqli_query($conexao, $sql_quadra);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="user" class="form-label">Usuário</label>
                                 <input type="text" class="form-control" id="user" name="user">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="senha" class="form-label">Senha</label>
                                 <input type="text" class="form-control" id="senha" name="senha">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="foto" class="form-label">Foto do usuário</label>
+                                <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
                             </div>
                         </div>
                     </div>
