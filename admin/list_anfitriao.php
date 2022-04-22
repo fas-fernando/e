@@ -1,10 +1,8 @@
 <?php include 'header.php' ?>
 
 <?php
-
 include 'conexao.php';
-
-$pesquisa = $_POST['busca'] ?? '';
+include 'funcoes.php';
 
 $sql = "SELECT * FROM anfitriao";
 $res = mysqli_query($conexao, $sql);
@@ -30,6 +28,48 @@ $dados_user = mysqli_fetch_assoc($res_user);
         </div>
     </div>
 </section>
+
+<div class="col-12">
+    <?php
+        if(isset($_GET['cadastro'])){
+            if($_GET['cadastro'] == '1') {
+                mensagens('Anfitrião cadastrado com sucesso', 'success');
+            } else {
+                mensagens('Problema no cadastro do anfitrião, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+
+    <?php
+        if (isset($_GET['edit'])) {
+            if ($_GET['edit'] == '1') {
+                mensagens('Anfitrião alterado com sucesso', 'success');
+            } else {
+                mensagens('Problema na alteração do anfitrião, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+
+    <?php
+        if (isset($_GET['delete'])) {
+            if ($_GET['delete'] == '1') {
+                mensagens('Anfitrião deletado com sucesso', 'success');
+            } else {
+                mensagens('Problema ao deletar do anfitrião, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+
+    <?php
+        if (isset($_GET['desfeito'])) {
+            if ($_GET['desfeito'] == '1') {
+                mensagens('Desfeito a exclusão do anfitrião com sucesso', 'success');
+            } else {
+                mensagens('Problema ao desfazer a exclusão do Anfitrião', 'danger');
+            }
+        }
+    ?>
+</div>
 
 <div class="col-12">
     <div class="card">

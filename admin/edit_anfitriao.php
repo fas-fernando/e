@@ -1,6 +1,3 @@
-<?php include 'header.php' ?>
-
-
 <?php
     include 'conexao.php';
     include 'funcoes.php';
@@ -23,29 +20,20 @@
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 
+        if ($res) {
+            header("location: list_anfitriao.php?edit=" . $res);
+        }
+
     } else {
 
         $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='I',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now()
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 
-    }
+        if ($res) {
+            header("location: list_anfitriao.php?edit=" . $res);
+        }
 
-
-
-
-    if($res) {
-        mensagens('Anfitrião alterado com sucesso', 'success');
-    } else {
-        mensagens('Problema ao cadastrar o Anfitrião', 'danger');
     }
 
 ?>
-
-<div class="row">
-    <div class="col-12">
-        <a href="list_anfitriao.php" class="btn btn-primary">Voltar</a>
-    </div>
-</div>
-
-<?php include 'footer.php' ?>

@@ -1,5 +1,4 @@
 <?php include '../../../viaCep.php' ?>
-
 <div class="modal fade" id="cadastrar_anfitriao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <form action="cad_anfitriao.php" method="POST" enctype="multipart/form-data">
