@@ -1,3 +1,5 @@
+<?php include '../../../viaCep.php' ?>
+
 <div class="modal fade" id="cadastrar_anfitriao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <form action="cad_anfitriao.php" method="POST" enctype="multipart/form-data">
@@ -11,7 +13,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="nome_anfi" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="nome_anfi" name="nome_anfi" required>
+                                <input type="text" class="form-control" id="nome_anfi" name="nome_anfi">
                             </div>
                         </div>
                     </div>

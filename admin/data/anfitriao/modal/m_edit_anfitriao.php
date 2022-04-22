@@ -1,5 +1,5 @@
 <?php
-
+include '../../../viaCep.php';
 include '../../../conexao.php';
 
 $id = $_POST['id'];

@@ -4,7 +4,7 @@
 <?php
     include 'conexao.php';
     include 'funcoes.php';
-
+    
     $nome      = limpaTexto($conexao, $_POST['nome_anfi']);
     $cnpj      = limpaTexto($conexao, limpaSiglas($_POST['cnpj']));
     $cpf       = limpaTexto($conexao, limpaSiglas($_POST['cpf']));
@@ -23,7 +23,7 @@
         $nome_foto = null;
     }
 
-    if ($cnpj) {
+    if (isset($cnpj)) {
 
         $sql = "INSERT INTO `anfitriao`(`nome`, `cnpj`, `tipo`, `status`, `endereco`, `numero`, `cep`, `bairro`, `cidade`, `uf`, `tel_fixo`, `tel_celular`, `criado_em`, `foto`)
             VALUES ('$nome','$cnpj','J','A','$endereco','$numero','$cep','$bairro','$cidade','$uf','$fixo','$cel',now(),'$nome_foto')";
