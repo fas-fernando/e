@@ -1,4 +1,5 @@
 <?php include '../../../viaCep.php' ?>
+
 <div class="modal fade" id="cadastrar_anfitriao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <form action="cad_anfitriao.php" method="POST" enctype="multipart/form-data">
@@ -39,44 +40,45 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-10">
-                            <div class="form-group">
-                                <label for="end_anfi" class="form-label">Endereço</label>
-                                <input type="text" class="form-control" id="end_anfi" name="end_anfi">
-                            </div>
-                        </div>
                         <div class="col-2">
-                            <div class="form-group">
-                                <label for="num_anfi" class="form-label">Número</label>
-                                <input type="text" class="form-control" id="num_anfi" name="num_anfi">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="bairro_anfi" class="form-label">Bairro</label>
-                                <input type="text" class="form-control" id="bairro_anfi" name="bairro_anfi">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="cidade_anfi" class="form-label">Cidade</label>
-                                <input type="text" class="form-control" id="cidade_anfi" name="cidade_anfi">
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="form-group">
-                                <label for="uf_anfi" class="form-label">UF</label>
-                                <input type="text" class="form-control" id="uf_anfi" name="uf_anfi">
-                            </div>
-                        </div>
-                        <div class="col-3">
                             <div class="form-group">
                                 <label for="cep_anfi" class="form-label">CEP</label>
                                 <input type="text" class="form-control" id="cep_anfi" name="cep_anfi">
                             </div>
                         </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="end_anfi" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="end_anfi" name="end_anfi" disabled>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="num_anfi" class="form-label">Número</label>
+                                <input type="text" class="form-control" id="num_anfi" name="num_anfi" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="bairro_anfi" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="bairro_anfi" name="bairro_anfi" disabled>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="cidade_anfi" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidade_anfi" name="cidade_anfi" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="uf_anfi" class="form-label">UF</label>
+                                <input type="text" class="form-control" id="uf_anfi" name="uf_anfi" readonly>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row mt-3">
                         <div class="col-4">

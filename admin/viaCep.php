@@ -37,9 +37,12 @@
                         if (!("erro" in dados)) {
                             //Atualiza os campos com os valores da consulta.
                             $("#end_anfi").val(dados.logradouro);
-                            $("#bairro_anfi").val(dados.bairro + ' - ' + dados.complemento);
+                            $("#bairro_anfi").val(dados.bairro + ' ' + dados.complemento);
                             $("#cidade_anfi").val(dados.localidade);
                             $("#uf_anfi").val(dados.uf);
+                            $("#end_anfi").removeAttr("disabled");
+                            $("#bairro_anfi").removeAttr("disabled");
+                            $("#num_anfi").removeAttr("disabled");
                             $("#num_anfi").focus();
                         } //end if.
                         else {

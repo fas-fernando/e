@@ -101,7 +101,7 @@ $dados_user = mysqli_fetch_assoc($res_user);
                         $nome = $dados['nome'];
                         $foto = $dados['foto'];
 
-                        if (!$foto == null) {
+                        if ($foto != null) {
                             $mostrar_foto = "<img src='img/$foto' style='width:50px;height:50px;border-radius:40px' alt='Imagem da Quadra'>";
                         } else {
                             $mostrar_foto = "<img src='img/quadra_padrao.png' style='width:50px;height:50px;border-radius:40px' alt='Imagem da Quadra Padrão'>";

@@ -14,10 +14,10 @@ $dados = mysqli_fetch_assoc($res);
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <?php if($dados['foto'] != '') { ?>
-                    <img src="img/<?= $dados['foto'] ?>" class="img-circle elevation-2" alt="imagem do usuário">
+                <?php if ($dados['foto'] != '') { ?>
+                    <img src="img/<?= $dados['foto'] ?>" class="img-circle elevation-2" alt="imagem do usuário" style="width:40px;height:40px">
                 <?php } else { ?>
-                    <img src="img/usuario_padrao.png" class="img-circle elevation-2" alt="imagem do padrão usuário">
+                    <img src="img/usuario_padrao.png" class="img-circle elevation-2" alt="imagem do padrão usuário" style="width:40px;height:40px">
                 <?php } ?>
             </div>
             <div class="info">
@@ -45,6 +45,12 @@ $dados = mysqli_fetch_assoc($res);
                             <a href="list_usuario.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Usuário</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="list_boleiro.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Boleiro</p>
                             </a>
                         </li>
                     </ul>

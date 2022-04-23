@@ -74,4 +74,12 @@ $(document).ready(function(){
         $("#modalUsuario").load("data/usuario/modal/m_desfazer_usuario.php", { id: id });
     });
 
+    // Detalhar boleiro
+    $(document).on("click", "#detalharBoleiro", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-dtl");
+
+        $("#modalBoleiro").load("data/boleiro/modal/m_dtl_boleiro.php", { id: id });
+    });
+
 });
