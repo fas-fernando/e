@@ -23,7 +23,7 @@
     } else {
 
         $sql = "UPDATE usuario SET `nome` = '$nome', `status` = 'I', `user` = '$user', `senha` = md5('$senha'), `nivel` = '$nivel', `tipo` = '$tipo', `vinculo` = '$anfitriao', `atualizado_em` = now()
-        WHERE id_anfitriao = '$id'";
+        WHERE id = '$id'";
         $res = mysqli_query($conexao, $sql);
 
         if ($res) {

@@ -3,6 +3,7 @@
 <?php
 
 include 'conexao.php';
+include 'funcoes.php';
 
 $sql = "SELECT * FROM boleiro";
 $res = mysqli_query($conexao, $sql);
@@ -30,12 +31,63 @@ $dados_user = mysqli_fetch_assoc($res_user);
 </section>
 
 <div class="col-12">
+    <?php
+        if(isset($_GET['cadastro'])){
+            if($_GET['cadastro'] == '1') {
+                mensagens('Boleiro cadastrado com sucesso', 'success');
+            } else {
+                mensagens('Problema no cadastro do boleiro, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+    
+    <?php
+        if(isset($_GET['editar'])){
+            if($_GET['editar'] == '1') {
+                mensagens('Boleiro alterado com sucesso', 'success');
+            } else {
+                mensagens('Problema na alteração do boleiro, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+
+    <?php
+        if(isset($_GET['deletar'])){
+            if($_GET['deletar'] == '1') {
+                mensagens('Boleiro deleado com sucesso', 'success');
+            } else {
+                mensagens('Problema ao deletar o boleiro, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+
+    <?php
+        if(isset($_GET['deletar'])){
+            if($_GET['deletar'] == '1') {
+                mensagens('Boleiro deleado com sucesso', 'success');
+            } else {
+                mensagens('Problema ao deletar o boleiro, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+    <?php
+        if(isset($_GET['desfazer'])){
+            if($_GET['desfazer'] == '1') {
+                mensagens('Desfeito a exclusão do boleiro com sucesso', 'success');
+            } else {
+                mensagens('Problema ao desfazer a exclusão do boleiro, verifique com o suporte', 'danger');
+            }
+        }
+    ?>
+</div>
+
+<div class="col-12">
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-2">
                     <h3 class="card-title">
-                        <button type="button" class=" btn btn-success btn-sm" id="cadastrarUsuario" name="cadastrarUsuario">Cadastrar</button>
+                        <button type="button" class=" btn btn-success btn-sm" id="cadastrarBoleiro" name="cadastrarBoleiro">Cadastrar</button>
                     </h3>
                 </div>
             </div>

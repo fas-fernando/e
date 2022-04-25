@@ -74,12 +74,41 @@ $(document).ready(function(){
         $("#modalUsuario").load("data/usuario/modal/m_desfazer_usuario.php", { id: id });
     });
 
+    // Cadastrar Anfitrião
+    $(document).on("click", "#cadastrarBoleiro", function () {
+      $("#modalBoleiro").load("data/boleiro/modal/m_cad_boleiro.php");
+    });
+
     // Detalhar boleiro
     $(document).on("click", "#detalharBoleiro", function(){
         event.preventDefault();
         var id = $(this).attr("data-dtl");
 
         $("#modalBoleiro").load("data/boleiro/modal/m_dtl_boleiro.php", { id: id });
+    });
+
+    // Alterar boleiro
+    $(document).on("click", "#alterarBoleiro", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-alt");
+
+        $("#modalBoleiro").load("data/boleiro/modal/m_edit_boleiro.php", { id: id });
+    });
+
+    // Deletar boleiro
+    $(document).on("click", "#detelarBoleiro", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-del");
+
+        $("#modalBoleiro").load("data/boleiro/modal/m_deletar_boleiro.php", { id: id });
+    });
+
+    // Desfazer Exclusão do Anfitrião
+    $(document).on("click", "#desfazerBoleiro", function(){
+        event.preventDefault();
+        var id = $(this).attr("data-des");
+
+        $("#modalBoleiro").load("data/boleiro/modal/m_desfazer_boleiro.php", { id: id });
     });
 
 });

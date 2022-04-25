@@ -47,3 +47,13 @@ function move_foto($vetor_foto) {
   }
 
 }
+
+function alterarData($datas) {
+  $dt = str_replace('/', '-', $datas); // 04/07/1991 => 04-07-1991
+
+  $dt_explode = explode('-', $dt); // [04, 07, 1991]
+
+  $dt_atual = $dt_explode[2] . '-' . $dt_explode[1] . '-' . $dt_explode[0];
+
+  return $dt_atual; // 1991-07-04
+}

@@ -4,12 +4,10 @@
 
 include 'conexao.php';
 
-$pesquisa = $_POST['busca'] ?? '';
-
-$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario, t1.foto, t1.tipo
+$sql = "SELECT t1.id, t1.nome, t1.status, t1.deletado_em, t1.user, t2.nivel_usuario, t1.foto, t1.tipo, t3.nome as nm_anfitriao
     FROM usuario t1
     left join nivel_usuario t2 on t1.nivel = t2.id_user
-    WHERE t1.nome LIKE '%$pesquisa%'";
+    left join anfitriao t3     on t1.vinculo = t3.id_anfitriao";
 $res = mysqli_query($conexao, $sql);
 
 $sql_user = "SELECT * FROM usuario WHERE id = '$iden'";
@@ -52,6 +50,7 @@ $dados_user = mysqli_fetch_assoc($res_user);
                     <tr>
                         <th>Foto</th>
                         <th>Status</th>
+                        <th>Quadra</th>
                         <th>Nome</th>
                         <th>Usuário</th>
                         <th>Nível</th>
@@ -77,6 +76,7 @@ $dados_user = mysqli_fetch_assoc($res_user);
                                 <?= ($dados['status'] == 'A') ? '<span class="badge bg-success">Ativo</span>' : '<span class="badge bg-danger">Inativo</span>' ?>
                                 <?= ($dados['deletado_em'] != null) ? '<span class="badge bg-dark">Excluído</span>' : '' ?>
                             </td>
+                            <td><?= $dados['nm_anfitriao'] ?></td>
                             <td><?= $nome ?></td>
 
                             <td><?= $dados['user'] ?></td>
