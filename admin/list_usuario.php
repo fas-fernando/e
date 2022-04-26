@@ -84,15 +84,17 @@ $res_user_cont = mysqli_query($conexao, $sql_user_cont);
 
 <div class="col-12">
     <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-2">
-                    <h3 class="card-title">
-                        <button type="button" class=" btn btn-success btn-sm" id="cadastrarUsuario" name="cadastrarUsuario">Cadastrar</button>
-                    </h3>
+        <?php if($dados_user['nivel'] == 5) { ?>
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-2">
+                        <h3 class="card-title">
+                            <button type="button" class=" btn btn-success btn-sm" id="cadastrarUsuario" name="cadastrarUsuario">Cadastrar</button>
+                        </h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
 
         <div class="card-body">
             <table id="example1" class="table table-bordered table-hover">
@@ -171,7 +173,7 @@ $res_user_cont = mysqli_query($conexao, $sql_user_cont);
                                 <td><?= $dados_user_cont['user'] ?></td>
                                 <td><?= $dados_user_cont['nivel_usuario'] ?></td>
                                 <td>
-                                    <?php if ($dados_user['tipo'] == 2) { ?>
+                                    <?php if (($dados_user['tipo'] == 2) && ($dados_user['nivel'] == 5)) { ?>
                                         <input type="submit" value="Detalhe" data-dtl="<?= $id ?>" class="btn btn-primary btn-sm" id="detalharUsuario" name="detalharUsuario">
                                         <input type="submit" value="Alterar" data-alt="<?= $id ?>" class="btn btn-warning btn-sm" id="alterarUsuario" name="alterarUsuario">
                                         <input type="submit" value="Deletar" data-del="<?= $id ?>" class=" btn btn-danger btn-sm" id="detelarUsuario" name="detelarUsuario">

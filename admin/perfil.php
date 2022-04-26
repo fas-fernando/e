@@ -1,26 +1,18 @@
-<?php include 'header.php' ?>
-
 <?php
-
-$sql = "SELECT t1.foto, t1.nome, t2.nivel_usuario
-FROM usuario t1
-left join nivel_usuario t2 on t1.nivel = t2.id_user
-WHERE t1.id = '$iden'";
-$res = mysqli_query($conexao, $sql);
-$dados = mysqli_fetch_assoc($res);
-
+include 'header.php';
+include 'sql/sql_perfil.php';
 ?>
 
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Profile</h1>
+                <h1><?= $dados_user['nm_anfitriao'] ?></h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">User Profile</li>
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item active">Perfil</li>
                 </ol>
             </div>
         </div>
@@ -34,39 +26,35 @@ $dados = mysqli_fetch_assoc($res);
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <?php if ($dados['foto'] != '') { ?>
-                                <img class="profile-user-img img-fluid img-circle" src="img/<?= $dados['foto'] ?>" alt="Foto do usuário">
+                            <?php if ($dados_user['foto'] != '') { ?>
+                                <img class="profile-user-img img-fluid img-circle" src="img/<?= $dados_user['foto'] ?>" alt="Foto do usuário">
                             <?php } else { ?>
                                 <img class="profile-user-img img-fluid img-circle" src="img/usuario_padrao.png" alt="Foto padrão do usuário">
                             <?php } ?>
                         </div>
-                        <h3 class="profile-username text-center"><?= $dados['nome'] ?></h3>
-                        <p class="text-muted text-center"><?= $dados['nivel_usuario'] ?></p>
+                        <h3 class="profile-username text-center"><?= $dados_user['nome'] ?></h3>
+                        <p class="text-muted text-center"><?= $dados_user['nivel_usuario'] ?></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#perfil" data-toggle="tab">Perfil</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#suporte" data-toggle="tab">Suporte</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="tab-content">
-                            <div class="active tab-pane" id="perfil">
-                                <h1>Perfil</h1>
-                            </div>
-                            <div class="tab-pane" id="suporte">
-                                <h1>Suporte</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php if ($nivel == 5) { ?>
+                <?php include 'data/administrador/perfil.php' ?>
+            <?php } else if (($nivel == 2) || ($nivel == 3) || ($nivel == 4)) { ?>
+                <?php include 'data/anfitriao/perfil.php' ?>
+            <?php } ?>
         </div>
     </div>
 </section>
 
 <?php include 'footer.php' ?>
+
+<script src="js/jquery.mask.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#cpf').mask('000.000.000-00');
+        $('#cnpj').mask('00.000.000/0000-00');
+        $('#cep').mask('00000-000');
+        $('#telefone').mask('(00) 0000-0000');
+        $('#celular').mask('(00) 00000-0000');
+    });
+</script>
