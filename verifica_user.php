@@ -19,18 +19,16 @@
 
                 $dados = mysqli_fetch_assoc($res);
 
-                if (($user == $dados['user']) && ($pass == $dados['senha']) && ($dados['nivel'] == 5)) {
+                if (($user == $dados['user']) && ($pass == $dados['senha'])) {
 
                     session_start();
-                    $_SESSION['login'] = $dados['nome'];
-                    $_SESSION['id'] = $dados['id'];
+                    $_SESSION['login']   = $dados['nome'];
+                    $_SESSION['id']      = $dados['id'];
+                    $_SESSION['nivel']   = $dados['nivel'];
+                    $_SESSION['vinculo']   = $dados['vinculo'];
                     header('location: admin');
 
-                } else if(($user == $dados['user']) && ($pass == $dados['senha']) && ($dados['nivel'] < 5)) {
-
-                    mensagens('Seu usuário não tem permissão para acessar essa sessão do sistema', 'danger');
-
-                }
+                } 
 
             } else {
 

@@ -1,5 +1,3 @@
-<?php include 'header.php' ?>
-
 <?php
 
 include 'conexao.php';
@@ -11,18 +9,7 @@ $sql = "UPDATE `usuario` SET `deletado_em` = now(), `status` = 'I'  WHERE id = '
 $res = mysqli_query($conexao, $sql);
 
 if ($res) {
-    mensagens('Anfitrião deletado com sucesso', 'success');
-} else {
-    mensagens('Problema ao excluir o Anfitrião', 'danger');
+    header("location: list_usuario.php?delete=" . $res);
 }
 
-
 ?>
-
-<div class="row">
-    <div class="col-12">
-        <a href="list_usuario.php" class="btn btn-primary">Voltar</a>
-    </div>
-</div>
-
-<?php include 'footer.php' ?>

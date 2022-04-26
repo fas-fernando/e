@@ -60,16 +60,6 @@ $dados_user = mysqli_fetch_assoc($res_user);
             }
         }
     ?>
-
-    <?php
-        if(isset($_GET['deletar'])){
-            if($_GET['deletar'] == '1') {
-                mensagens('Boleiro deleado com sucesso', 'success');
-            } else {
-                mensagens('Problema ao deletar o boleiro, verifique com o suporte', 'danger');
-            }
-        }
-    ?>
     <?php
         if(isset($_GET['desfazer'])){
             if($_GET['desfazer'] == '1') {

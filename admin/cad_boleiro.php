@@ -24,7 +24,7 @@
     $dados = mysqli_fetch_assoc($res);
     $id = $dados['id'];
 
-    $sql_user = "INSERT INTO `usuario` (nome, user, senha, nivel, tipo, `status`, foto, vinculo) VALUES ('$nome', '$user', md5('$senha'), '1', '1', 'A', '$nome_foto', '$id')";
+    $sql_user = "INSERT INTO `usuario` (nome, user, senha, nivel, tipo, `status`, foto, vinculo, criado_em) VALUES ('$nome', '$user', md5('$senha'), '1', '1', 'A', '$nome_foto', '$id', now())";
     $res = mysqli_query($conexao, $sql_user);
 
 
