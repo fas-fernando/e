@@ -1,14 +1,37 @@
 <div class="col-md-9">
+    <div class="col-12">
+        <?php
+        if (isset($_GET['salvar'])) {
+            if ($_GET['salvar'] == '1') {
+                mensagens('Horários salvos com sucesso', 'success');
+            } else {
+                mensagens('Problema ao salvar os horários, verifique com o suporte', 'danger');
+            }
+        }
+        ?>
+
+        <?php
+        if (isset($_GET['atualizar'])) {
+            if ($_GET['atualizar'] == '1') {
+                mensagens('Horários atualizados com sucesso', 'success');
+            } else {
+                mensagens('Problema ao atualizar os horários, verifique com o suporte', 'danger');
+            }
+        }
+        ?>
+    </div>
     <div class="card">
         <div class="card-header p-2">
             <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link active" href="#perfil" data-toggle="tab">Perfil</a></li>
                 <li class="nav-item"><a class="nav-link" href="#quadra" data-toggle="tab">Quadra</a></li>
+                <li class="nav-item"><a class="nav-link" href="#horario" data-toggle="tab">Horários</a></li>
                 <li class="nav-item"><a class="nav-link" href="#suporte" data-toggle="tab">Suporte</a></li>
             </ul>
         </div>
         <div class="card-body">
             <div class="tab-content">
+                <!-- Perfil  -->
                 <div class="active tab-pane" id="perfil">
                     <div class="row">
                         <div class="col-8">
@@ -39,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Quadra -->
                 <div class="tab-pane" id="quadra">
                     <div class="row">
                         <div class="col-3">
@@ -116,6 +140,99 @@
                         </div>
                     </div>
                 </div>
+                <!-- Horários -->
+                <div class="tab-pane" id="horario">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Horários de funcionamento</h3>
+                        </div>
+                        <form action="horarios.php" method="POST">
+                            <div class="card-body p-0">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Dias da semana</th>
+                                            <th style="width: 150px">Hora Inicial</th>
+                                            <th style="width: 150px">Hora Final</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Segunda-Feira</td>
+                                            <td>
+                                                <input type="time" id="segHI" name="segHI" class="form-control" value="<?= $dados_hora_anfi['seg_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="segHF" name="segHF" class="form-control" value="<?= $dados_hora_anfi['seg_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Terça-Feira</td>
+                                            <td>
+                                                <input type="time" id="terHI" name="terHI" class="form-control" value="<?= $dados_hora_anfi['ter_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="terHF" name="terHF" class="form-control" value="<?= $dados_hora_anfi['ter_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quarta-Feira</td>
+                                            <td>
+                                                <input type="time" id="quaHI" name="quaHI" class="form-control" value="<?= $dados_hora_anfi['qua_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="quaHF" name="quaHF" class="form-control" value="<?= $dados_hora_anfi['qua_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quinta-Feira</td>
+                                            <td>
+                                                <input type="time" id="quiHI" name="quiHI" class="form-control" value="<?= $dados_hora_anfi['qui_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="quiHF" name="quiHF" class="form-control" value="<?= $dados_hora_anfi['qui_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexta-Feira</td>
+                                            <td>
+                                                <input type="time" id="sexHI" name="sexHI" class="form-control" value="<?= $dados_hora_anfi['sex_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="sexHF" name="sexHF" class="form-control" value="<?= $dados_hora_anfi['sex_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sábado</td>
+                                            <td>
+                                                <input type="time" id="sabHI" name="sabHI" class="form-control" value="<?= $dados_hora_anfi['sab_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="sabHF" name="sabHF" class="form-control" value="<?= $dados_hora_anfi['sab_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Domingo</td>
+                                            <td>
+                                                <input type="time" id="domHI" name="domHI" class="form-control" value="<?= $dados_hora_anfi['dom_ini'] ?>" />
+                                            </td>
+                                            <td>
+                                                <input type="time" id="domHF" name="domHF" class="form-control" value="<?= $dados_hora_anfi['dom_fim'] ?>" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th><button type="submit" id="salvarHorarios" class="btn btn-primary">Salvar</button></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Suporte -->
                 <div class="tab-pane" id="suporte">
                     <div class="card">
                         <div class="card-body row">
