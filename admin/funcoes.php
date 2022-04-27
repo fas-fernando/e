@@ -57,3 +57,13 @@ function alterarData($datas) {
 
   return $dt_atual; // 1991-07-04
 }
+
+function geraQrCode() {
+  $data = 'https://api.whatsapp.com/send?phone=5511996466498';
+  $width = 250;
+  $height = 250;
+
+  $url = "https://chart.googleapis.com/chart?cht=qr&chs={$width}x{$height}&chl={$data}";
+  return $output['img'] = $url;
+
+}

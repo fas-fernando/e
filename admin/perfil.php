@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 include 'sql/sql_perfil.php';
+include 'funcoes.php';
 ?>
 
 <section class="content-header">
