@@ -1,4 +1,9 @@
-<?php include '../../../viaCep.php' ?>
+<?php
+include '../../../viaCep.php';
+include '../../../conexao.php';
+include '../sql.php';
+
+?>
 
 <div class="modal fade" id="cadastrar_anfitriao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -90,13 +95,92 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="celular_anfi" class="form-label">Celular</label>
-                                <input type="text" class="form-control" id="celular_anfi" name="celular_anfi" placeholder="(00) 00000-0000">
+                                <input type="text" class="form-control celular_anfi" id="celular_anfi" name="celular_anfi" placeholder="(00) 00000-0000">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="foto" class="form-label">Imagem da Quadra</label>
                                 <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">CARACTERISTICAS</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">ESPORTES</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                    <input type="checkbox" class="custom-control-input" id="futebol" name="esportes[]" value="<?= $id_esp[0] ?>">
+                                                    <label class="custom-control-label" for="futebol">Futebol</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                    <input type="checkbox" class="custom-control-input" id="volei" name="esportes[]" value="<?= $id_esp[4] ?>">
+                                                    <label class="custom-control-label" for="volei">Vôlei</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">MODALIDADES</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_campo" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="campo" name="modalidades[]" value="<?= $id_mod[0] ?>">
+                                                    <label for="campo" class="custom-control-label">Campo</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_futsal" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="futsal" name="modalidades[]" value="<?= $id_mod[1] ?>">
+                                                    <label for="futsal" class="custom-control-label">Futsal</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_areia" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="areia" name="modalidades[]" value="<?= $id_mod[7] ?>">
+                                                    <label for="areia" class="custom-control-label">Areia</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_quadra" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="quadra" name="modalidades[]" value="<?= $id_mod[8] ?>">
+                                                    <label for="quadra" class="custom-control-label">Quadra</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,6 +196,34 @@
 
 <script>
     $(document).ready(function() {
+        $('#futebol').on('change', function() {
+            if ($('#futebol').prop('checked')) {
+
+                $("#mod_campo").show();
+                $("#mod_futsal").show();
+            } else {
+
+                $("#mod_campo").hide();
+                $("#mod_futsal").hide();
+            }
+        });
+
+        $('#volei').on('change', function() {
+            if ($('#volei').prop('checked')) {
+
+                $("#mod_areia").show();
+                $("#mod_quadra").show();
+            } else {
+
+                $("#mod_areia").hide();
+                $("#mod_quadra").hide();
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
         $('#cpf').mask('000.000.000-00');
         $('#cnpj').mask('00.000.000/0000-00');
         $('#cep_anfi').mask('00000-000');
@@ -122,7 +234,6 @@
 
 <script>
     $(document).ready(function() {
-        // Abrir Modal
         $("#cadastrar_anfitriao").modal("show");
     });
 </script>
