@@ -105,6 +105,14 @@ include '../sql.php';
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="tel_anfi" class="form-label">Observação</label>
+                                <textarea type="text" class="form-control" id="obs" name="obs" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="row">
                         <div class="col-4">
@@ -114,7 +122,58 @@ include '../sql.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                       
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="churrasqueira" name="carac[]" value="<?= $id_carac[0] ?>">
+                                            <label class="custom-control-label" for="churrasqueira">Churrasqueira</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="bilhar" name="carac[]" value="<?= $id_carac[1] ?>">
+                                            <label class="custom-control-label" for="bilhar">Mesa de bilhar</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="vestiario" name="carac[]" value="<?= $id_carac[2] ?>">
+                                            <label class="custom-control-label" for="vestiario">Vestiário</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="chuveiro" name="carac[]" value="<?= $id_carac[3] ?>">
+                                            <label class="custom-control-label" for="chuveiro">Chuveiro</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="estac_gratis" name="carac[]" value="<?= $id_carac[4] ?>">
+                                            <label class="custom-control-label" for="estac_gratis">Estacionamento grátis</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="estac_pago" name="carac[]" value="<?= $id_carac[5] ?>">
+                                            <label class="custom-control-label" for="estac_pago">Estacionamento pago</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="lanchonete" name="carac[]" value="<?= $id_carac[6] ?>">
+                                            <label class="custom-control-label" for="lanchonete">Lanchonete</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="pl_eletronico" name="carac[]" value="<?= $id_carac[7] ?>">
+                                            <label class="custom-control-label" for="pl_eletronico">Placar eletrônico</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                            <input type="checkbox" class="custom-control-input" id="filmagem" name="carac[]" value="<?= $id_carac[8] ?>">
+                                            <label class="custom-control-label" for="filmagem">Filmagem</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -167,15 +226,15 @@ include '../sql.php';
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_areia" style="display:none">
-                                                    <input class="custom-control-input" type="checkbox" id="areia" name="modalidades[]" value="<?= $id_mod[7] ?>">
-                                                    <label for="areia" class="custom-control-label">Areia</label>
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_areia_vol" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="vol_areia" name="modalidades[]" value="<?= $id_mod[7] ?>">
+                                                    <label for="vol_areia" class="custom-control-label">Areia</label>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_quadra" style="display:none">
-                                                    <input class="custom-control-input" type="checkbox" id="quadra" name="modalidades[]" value="<?= $id_mod[8] ?>">
-                                                    <label for="quadra" class="custom-control-label">Quadra</label>
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_quadra_vol" style="display:none">
+                                                    <input class="custom-control-input" type="checkbox" id="vol_quadra" name="modalidades[]" value="<?= $id_mod[8] ?>">
+                                                    <label for="vol_quadra" class="custom-control-label">Quadra</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,6 +255,7 @@ include '../sql.php';
 
 <script>
     $(document).ready(function() {
+        // Exibe modalidades do futebol
         $('#futebol').on('change', function() {
             if ($('#futebol').prop('checked')) {
 
@@ -208,15 +268,16 @@ include '../sql.php';
             }
         });
 
+        // Exibe modalidades do Vôlei
         $('#volei').on('change', function() {
             if ($('#volei').prop('checked')) {
 
-                $("#mod_areia").show();
-                $("#mod_quadra").show();
+                $("#mod_areia_vol").show();
+                $("#mod_quadra_vol").show();
             } else {
 
-                $("#mod_areia").hide();
-                $("#mod_quadra").hide();
+                $("#mod_areia_vol").hide();
+                $("#mod_quadra_vol").hide();
             }
         });
     });

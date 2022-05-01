@@ -13,10 +13,13 @@ $uf        = limpaTexto($conexao, $_POST['uf_anfi']);
 $cep       = limpaTexto($conexao, limpaSiglas($_POST['cep_anfi']));
 $fixo      = limpaTexto($conexao, limpaSiglas($_POST['tel_anfi']));
 $cel       = limpaTexto($conexao, limpaSiglas($_POST['celular_anfi']));
+$obs       = limpaTexto($conexao, $_POST['obs']);
 
-$esportes_array = $_POST['esportes'];
-$esportes_string = implode(",", $esportes_array);
-$modalidades_array = $_POST['modalidades'];
+$carac_array        = $_POST['carac'];
+$carac_string       = implode(",", $carac_array);
+$esportes_array     = $_POST['esportes'];
+$esportes_string    = implode(",", $esportes_array);
+$modalidades_array  = $_POST['modalidades'];
 $modalidades_string = implode(",", $modalidades_array);
 
 $foto      = $_FILES['foto'];
@@ -28,8 +31,8 @@ if($nome_foto == 0) {
 
 if ($cnpj) {
 
-    $sql = "INSERT INTO `anfitriao`(`nome`, `cnpj`, `tipo`, `status`, `id_esportes`, `id_modalidade`, `endereco`, `numero`, `cep`, `bairro`, `cidade`, `uf`, `tel_fixo`, `tel_celular`, `criado_em`, `foto`)
-        VALUES ('$nome','$cnpj','J','A','$esportes_string','$modalidades_string','$endereco','$numero','$cep','$bairro','$cidade','$uf','$fixo','$cel',now(),'$nome_foto')";
+    $sql = "INSERT INTO `anfitriao`(`nome`, `cnpj`, `tipo`, `status`, `id_esportes`, `id_caracteristicas`, `id_modalidade`, `endereco`, `numero`, `cep`, `bairro`, `cidade`, `uf`, `tel_fixo`, `obs`, `tel_celular`, `criado_em`, `foto`)
+        VALUES ('$nome','$cnpj','J','A','$esportes_string','$carac_string','$modalidades_string','$endereco','$numero','$cep','$bairro','$cidade','$uf','$fixo','$obs','$cel',now(),'$nome_foto')";
     $res = mysqli_query($conexao, $sql);
 
     if ($res) {
@@ -38,8 +41,8 @@ if ($cnpj) {
     
 } else {
 
-    $sql = "INSERT INTO `anfitriao`(`nome`, `cpf`, `tipo`, `status`, `id_esportes`, `id_modalidade`, `endereco`, `numero`, `cep`, `bairro`, `cidade`, `uf`, `tel_fixo`, `tel_celular`, `criado_em`, `foto`)
-        VALUES ('$nome','$cpf','F','A','$esportes_string','$modalidades_string','$endereco','$numero','$cep','$bairro','$cidade','$uf','$fixo','$cel',now(),'$nome_foto')";
+    $sql = "INSERT INTO `anfitriao`(`nome`, `cpf`, `tipo`, `status`, `id_esportes`, `id_caracteristicas`, `id_modalidade`, `endereco`, `numero`, `cep`, `bairro`, `cidade`, `uf`, `tel_fixo`, `obs`, `tel_celular`, `criado_em`, `foto`)
+        VALUES ('$nome','$cpf','F','A','$esportes_string','$carac_string','$modalidades_string','$endereco','$numero','$cep','$bairro','$cidade','$uf','$fixo','$obs','$cel',now(),'$nome_foto')";
     $res = mysqli_query($conexao, $sql);
 
     if ($res) {
