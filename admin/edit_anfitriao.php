@@ -13,10 +13,18 @@
     $tel_anfi     = limpaTexto($conexao, limpaSiglas($_POST['tel_anfi']));
     $celular_anfi = limpaTexto($conexao, limpaSiglas($_POST['celular_anfi']));
     $status       = limpaTexto($conexao, $_POST['status']);
+    $obs          = limpaTexto($conexao, $_POST['obs']);
+
+    $carac_array        = $_POST['carac'];
+    $carac_string       = implode(",", $carac_array);
+    $esportes_array     = $_POST['esportes'];
+    $esportes_string    = implode(",", $esportes_array);
+    $modalidades_array  = $_POST['modalidades'];
+    $modalidades_string = implode(",", $modalidades_array);
 
     if($status == 'A') {
         
-        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='A',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now()
+        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='A',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`id_caracteristicas`='$carac_string',`id_esportes`='$esportes_string',`id_modalidade`='$modalidades_string', `obs`='$obs', `atualizado_em`=now()
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 
@@ -26,7 +34,7 @@
 
     } else {
 
-        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='I',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`atualizado_em`=now()
+        $sql = "UPDATE anfitriao SET `nome`='$nome_anfi',`status`='I',`endereco`='$end_anfi',`numero`='$num_anfi',`cep`='$cep_anfi',`bairro`='$bairro_anfi',`cidade`='$cidade_anfi',`uf`='$uf_anfi',`tel_fixo`='$tel_anfi',`tel_celular`='$celular_anfi',`id_caracteristicas`='$carac_string',`id_esportes`='$esportes_string',`id_modalidade`='$modalidades_string', `obs`='$obs',`atualizado_em`=now()
         WHERE id_anfitriao = '$id'";
         $res = mysqli_query($conexao, $sql);
 

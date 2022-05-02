@@ -161,38 +161,102 @@ if (!$foto == null) {
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="chuveiro" name="carac[]" value="4" disabled>
+                                        <input <?= in_array(4, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="chuveiro" name="carac[]" value="4" disabled>
                                         <label class="custom-control-label" for="chuveiro" disabled>Chuveiro</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="estac_gratis" name="carac[]" value="5" disabled>
+                                        <input <?= in_array(5, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="estac_gratis" name="carac[]" value="5" disabled>
                                         <label class="custom-control-label" for="estac_gratis" disabled>Estacionamento grátis</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="estac_pago" name="carac[]" value="6" disabled>
+                                        <input <?= in_array(6, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="estac_pago" name="carac[]" value="6" disabled>
                                         <label class="custom-control-label" for="estac_pago" disabled>Estacionamento pago</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="lanchonete" name="carac[]" value="7" disabled>
+                                        <input <?= in_array(7, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="lanchonete" name="carac[]" value="7" disabled>
                                         <label class="custom-control-label" for="lanchonete" disabled>Lanchonete</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="pl_eletronico" name="carac[]" value="8" disabled>
+                                        <input <?= in_array(8, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="pl_eletronico" name="carac[]" value="8" disabled>
                                         <label class="custom-control-label" for="pl_eletronico" disabled>Placar eletrônico</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                        <input type="checkbox" class="custom-control-input" id="filmagem" name="carac[]" value="9" disabled>
+                                        <input <?= in_array(9, $components) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="filmagem" name="carac[]" value="9" disabled>
                                         <label class="custom-control-label" for="filmagem" disabled>Filmagem</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">ESPORTES</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                <input <?= in_array(1, $esportes) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="futebol" name="esportes[]" value="" disabled>
+                                                <label class="custom-control-label" for="futebol" disabled>Futebol</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                <input <?= in_array(5, $esportes) ? 'checked' : '' ?> type="checkbox" class="custom-control-input" id="volei" name="esportes[]" value="" disabled>
+                                                <label class="custom-control-label" for="volei" disabled>Vôlei</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">MODALIDADES</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_campo">
+                                                <input <?= in_array(1, $modalidades) ? 'checked' : '' ?> class="custom-control-input" type="checkbox" id="campo" name="modalidades[]" value="" disabled>
+                                                <label for="campo" class="custom-control-label" disabled>Campo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_futsal">
+                                                <input <?= in_array(2, $modalidades) ? 'checked' : '' ?> class="custom-control-input" type="checkbox" id="futsal" name="modalidades[]" value="" disabled>
+                                                <label for="futsal" class="custom-control-label" disabled>Futsal</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_areia_vol">
+                                                <input <?= in_array(8, $modalidades) ? 'checked' : '' ?> class="custom-control-input" type="checkbox" id="vol_areia" name="modalidades[]" value="" disabled>
+                                                <label for="vol_areia" class="custom-control-label" disabled>Areia</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" id="mod_quadra_vol">
+                                                <input <?= in_array(9, $modalidades) ? 'checked' : '' ?> class="custom-control-input" type="checkbox" id="vol_quadra" name="modalidades[]" value="" disabled>
+                                                <label for="vol_quadra" class="custom-control-label" disabled>Quadra</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -209,27 +273,6 @@ if (!$foto == null) {
 
 <script>
     $(document).ready(function() {
-        // var pos0 = ;
-        // var pos1 = ;
-        // var pos2 = ;
-        // var churrasqueira = $("#churrasqueira").val();
-        // var bilhar = $("#bilhar").val();
-        // var vestiario = $("#vestiario").val();
-
-        // console.log(pos0 == vestiario);
-
-        // if (pos0 == churrasqueira) {
-        //     $("#churrasqueira").prop("checked", true);
-        // }
-
-        // if ((pos0 == bilhar) || (pos1 == bilhar)) {
-        //     $("#bilhar").prop("checked", true);
-        // }
-
-        // if ((pos0 == vestiario) || (pos1 == vestiario) || (pos2 == vestiario)) {
-        //     $("#vestiario").prop("checked", true);
-        // }
-
         // Abrir Modal
         $('#alterar_anfitriao').modal('show');
 

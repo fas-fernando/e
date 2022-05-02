@@ -24,6 +24,7 @@ while($dados_carac = mysqli_fetch_assoc($res_carac)){
     $id_carac[] = $dados_carac['id_carac'];
 }
 
+// Array com os valores de caracteristicas para serem exibidos em detalhes
 $sql_dtl = "SELECT * FROM anfitriao WHERE id_anfitriao = '$id'";
 $res_dtl = mysqli_query($conexao, $sql_dtl);
 $dados_dtl = mysqli_fetch_assoc($res_dtl);
@@ -31,10 +32,13 @@ $dados_dtl = mysqli_fetch_assoc($res_dtl);
 $foto = $dados_dtl['foto'];
 $carac = $dados_dtl['id_caracteristicas'];
 $components = explode(",", $carac);
+$id_esportes = $dados_dtl['id_esportes'];
+$esportes = explode(",", $id_esportes);
+$id_moda = $dados_dtl['id_modalidade'];
+$modalidades = explode(",", $id_moda);
 
-// echo "<pre>";
-// print_r($components);
-// echo "</pre>";
-// die();
+
+
+
 
 ?>
