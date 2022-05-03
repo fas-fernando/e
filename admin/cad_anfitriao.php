@@ -14,6 +14,7 @@ $cep       = limpaTexto($conexao, limpaSiglas($_POST['cep_anfi']));
 $fixo      = limpaTexto($conexao, limpaSiglas($_POST['tel_anfi']));
 $cel       = limpaTexto($conexao, limpaSiglas($_POST['celular_anfi']));
 $obs       = limpaTexto($conexao, $_POST['obs']);
+$foto      = $_FILES['foto'];
 
 $carac_array        = $_POST['carac'];
 $carac_string       = implode(",", $carac_array);
@@ -22,7 +23,6 @@ $esportes_string    = implode(",", $esportes_array);
 $modalidades_array  = $_POST['modalidades'];
 $modalidades_string = implode(",", $modalidades_array);
 
-$foto      = $_FILES['foto'];
 $nome_foto = move_foto($foto);
 
 if($nome_foto == 0) {

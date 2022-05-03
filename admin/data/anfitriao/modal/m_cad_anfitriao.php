@@ -108,7 +108,7 @@ include '../sql.php';
                     <div class="row mt-3">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="tel_anfi" class="form-label">Observação</label>
+                                <label for="obs" class="form-label">Observação</label>
                                 <textarea type="text" class="form-control" id="obs" name="obs" rows="4"></textarea>
                             </div>
                         </div>

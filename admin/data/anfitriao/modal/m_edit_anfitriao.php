@@ -126,6 +126,12 @@ if (!$foto == null) {
                                 <input type="text" class="form-control" id="celular_anfi" name="celular_anfi" placeholder="(11) 94444-4444" value="<?= $dados_dtl['tel_celular'] ?>">
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="foto_edit" class="form-label" disabled>Imagem da Quadra</label>
+                                <input type="file" class="form-control" id="foto_edit" name="foto_edit" accept="image/*" disabled>
+                            </div>
+                        </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12">
